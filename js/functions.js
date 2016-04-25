@@ -448,9 +448,8 @@ function loadConsensus() {
 
 function loadPayment () {
 
-	var	paymentForm = '<h2>Your accounts</h2>';
-
-		paymentForm += '<div id="wallet_accounts"><h2>Your Wallet</h2> <button class="btn btn-primary" id="newAddress">New Address</button></div><div id="accounts_sender"></div><hr/>';
+	var	paymentForm = '<div id="wallet_accounts"><h2>Your Wallet</h2> <button class="btn btn-primary" id="newAddress">New Address</button></div>';
+		paymentForm += '<div id="accounts_sender" class="wavesTable"><table><thead><tr><th>Address</th><th>Balance</th></thead><tbody id="accounts_table"></tbody></table></div><hr/>';
 		paymentForm += '</div>';
 
 		paymentForm += '<h2>Send Payment</h2><form id="paymentForm" style="height: 150px;">'+
@@ -490,7 +489,7 @@ function loadPayment () {
 				$.getJSON(server+'/addresses/balance/'+innervalue, function(balanceResult) {
 
 
-					$("#accounts_sender").append(innervalue +' - Balance: '+balanceResult.balance+' Waves<br>');
+					$("#accounts_table").append('<tr><td>'+innervalue +'</td><td>'+balanceResult.balance+' Waves</td></tr>');
 
 				});
 
@@ -600,7 +599,8 @@ function loadPayment () {
 
 			console.log(createAddress);
 
-			$("#accounts_sender").append(createAddress.address+' - Balance: 0 Waves<br>');
+			$("#accounts_table").append('<tr><td>'+createAddress.address +'</td><td>0 Waves</td></tr>');
+
 
 		});
 
