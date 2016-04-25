@@ -35,9 +35,7 @@ $(document).ready(function(){
 
 
 function initApp() {
-    loadAccount();
     loadHistory();
-
     loadBlockheight();
     loadBalance();
 }

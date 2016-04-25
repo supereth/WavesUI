@@ -10,7 +10,7 @@ function loadBlockheight() {
 
 	$.getJSON(server+'/blocks/height', function(result) {
 
-		$("#blockheight").html('Block Height: '+result.height);
+		$("#blockheight").html(result.height);
 
 	});
 
@@ -137,74 +137,6 @@ function loadHistory() {
 }
 
 
-
-function loadAccount() {
-
-
-	var appContainer;
-	var welcomeJumbo = '<h2>Your Balance</h2>';
-
-	appContainer = welcomeJumbo;	
-
-	appContainer = '<div class="row"><div class="col-md-12"><h2>Balance: <span class="balancewaves"></span></div></div>';
-
-	$.getJSON(server+'/addresses/', function(response) {
-
-		appContainer += '<div class="container"><h2>Your Wallet</h2>';
-
-		appContainer += '<table class="table table-striped">';
-		appContainer += '<thead><tr><th>Key</th><th>Value</th></tr></thead>';
-		appContainer += '<tbody>';
-
-		$.each(response, function(key, value) {
-
-			$.each(value, function(innerkey, innervalue) {
-
-				appContainer += '<tr><td>';
-				appContainer += innerkey;
-				appContainer += '</td><td>';
-				appContainer += innervalue;
-				appContainer += '</td></tr>';
-
-			});
-
-			
-
-		});
-
-		appContainer += '<tbody>';
-
-
-
-
-		appContainer += '</div>';
-
-		appContainer += '<button class="btn btn-primary" id="newAddress">New Address</button>';
-
-		
-		$("#app").html(appContainer);
-		$('.balancewaves').html($("#balancespan").html());
-
-		$("#newAddress").on("click", function() {
-
-			$.post(server+'/addresses/', function(createAddress) {
-
-				$(".wavesNavbar").removeClass('active');
-
-				$("#walletpage").addClass('active');
-
-				loadWallet();
-
-			});
-
-		});
-
-
-	});
-
-
-
-}
 
 function loadWallet() {
 
