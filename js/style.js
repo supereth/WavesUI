@@ -40,7 +40,7 @@ $(window).resize(function(){
 $(document).ready(function(){
 	// Show/hide different sections on tab activation
     $('input[type=radio]').click(function(){
-       // $('.mBB-content, .LBmBB-content').fadeOut(200).delay(500);
+        $('.mBB-content, .LBmBB-content').fadeOut(200);
         $('#' + $(this).val()).fadeIn(800);
 		$('#LB' + $(this).val()).fadeIn(800);
         
