@@ -7,7 +7,6 @@ var balance = 0;
 
 function loadBlockheight() {
 
-
 	$.getJSON(server+'/blocks/height', function(result) {
 
 		$("#blockheight").html(result.height);
@@ -120,19 +119,11 @@ function loadHistory() {
 		
 	});
 
-
-	
-
 	setTimeout(function() {
 
 		$("#transactionhistory").html(appContainer);
 
 	}, 1000);
-
-
-
-
-
 
 }
 
@@ -190,6 +181,7 @@ function loadWallet() {
 
 }
 
+/*
 function loadPeers() {
 
 	var appContainer;
@@ -376,32 +368,47 @@ function loadConsensus() {
 
 }
 
-
+*/
 
 function loadPayment () {
 
 	var	paymentForm = '<div id="wallet_accounts"><h2>Your Wallet</h2> <button class="btn btn-primary" id="newAddress">New Address</button></div>';
 		paymentForm += '<div id="accounts_sender" class="wavesTable"><table><thead><tr><th>Address</th><th>Balance</th></thead><tbody id="accounts_table"></tbody></table></div><hr/>';
-		paymentForm += '</div>';
+		paymentForm += '</div><div id="payment_response"></div>';
 
-		paymentForm += '<h2>Send Payment</h2><form id="paymentForm" style="height: 150px;">'+
-						'<div class="form-group">'+
-						  '  <label for="sender">Sender (choose from Your Accounts)</label>'+
-						  '  <input type="text" class="form-control" id="sender" placeholder="Sender">'+
-						  '</div>'+
-						 '<div class="form-group">'+
-						  '  <label for="recipient">Recipient</label>'+
-						  '  <input type="text" class="form-control" id="recipient" placeholder="Recipient">'+
-						  '</div>'+
-						  '<div class="form-group">'+
-						  ' <label for="sendamount">Amount</label>'+
-						  '  <input type="number" class="form-control" id="sendamount" placeholder="Amount" min="0">'+
-						  '</div>'+
-						  '<p>Fee 1 Waves</p>'+
-						  '<hr>'+
-						  '<button class="btn btn-default" id="sendpayment">Submit</button>'+
-						'</form>'+
-						'<div class="alert alert-primary" id="payment_response"></div>';
+		paymentForm += '<h2>Send Payment</h2>'+
+						'<form id="paymentForm" style="height: 200px;">'+
+							'<div class="wavesTable">'+
+							  '  <table>'+
+							  '  	<thead>'+
+							  '			<tr>'+
+							  '				<th>#</th>'+
+							  '				<th>Input</th>'+
+							  '			</tr>'+
+							  '  	</thead>'+
+							  '		<tbody>'+
+							  '			<tr>'+
+							  '				<td>Sender (choose one account with balance from above)</td>'+
+							  '				<td><input type="text" class="form-control" id="sender" placeholder="Sender"></td>'+
+							  '			</tr>'+
+							  '			<tr>'+
+							  '				<td>Recipient</td>'+
+							  '				<td><input type="text" class="form-control" id="recipient" placeholder="Recipient"></td>'+
+							  '			</tr>'+
+							  '			<tr>'+
+							  '				<td>Amount</td>'+
+							  '				<td><input type="number" class="form-control" id="sendamount" placeholder="Amount" min="0"></td>'+
+							  '			</tr>'+
+							  '			<tr>'+
+							  '				<td>Send</td>'+
+							  '				<td><button id="sendpayment" value="send">Submit</button></td>'+
+							  '			</tr>'+
+							  '		</tbody>'+
+							  '	  </table'+
+							  '</div>'+
+							  '<p>Fee 1 Waves</p>'+
+							  '<hr>'+
+						'</form>';
 
 
 		paymentForm += '</div>';
@@ -541,6 +548,8 @@ function loadPayment () {
 
 }
 
+/*
+
 function loadDebug () {
 
 	var debugPage = '<div class="container">'+
@@ -596,3 +605,5 @@ function loadDebug () {
 
 
 }
+
+*/
