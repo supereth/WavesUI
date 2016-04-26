@@ -255,6 +255,7 @@ input.tabs-radio:checked + label  img {
 	display: table-cell;
 	position: relative;
 	width: auto;
+    padding-bottom: 1rem;
 }
 
 #mBB-portfolio, #mBB-exchange, #mBB-voting, #mBB-history, #mBB-messages, #mBB-community {
@@ -519,6 +520,7 @@ input.tabs-radio:checked + label  img {
     padding-left: .5rem;
     padding-right: .5rem;
     background: #0096DC;
+    font-family: 'Wesli';
 	font-size: 1rem;
     line-height: 2.3rem;
 	color: #ffffff;
@@ -534,6 +536,10 @@ input.tabs-radio:checked + label  img {
 /* ==================================================== */
 /* PORTFOLIO TAB *//* PORTFOLIO TAB */ /* PORTFOLIO TAB */  
 /* ==================================================== */
+
+#portfolio {
+    padding-bottom: 1rem;
+}
 
 #portfolio h2 {
     background-color: #ffffff;
@@ -553,6 +559,7 @@ input.tabs-radio:checked + label  img {
     padding-left: .5rem;
     padding-right: .5rem;
     background: #0096DC;
+    font-family: 'Wesli';
 	font-size: 1rem;
     line-height: 2.3rem;
 	color: #ffffff;
