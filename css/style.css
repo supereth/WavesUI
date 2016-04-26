@@ -1,10 +1,14 @@
-/* NOTES
+/* GENERAL NOTES
 Waves' branding colors: #0096DC for overall items (blue)
                         #5AC8D2 for highlights (light blue/turquoise)
                         #D7D7D7 (light grey)
                         #AFAFAF (grey - Next on scale)
-
 */
+
+
+/* ================================================= */
+/* FONT-FACE DEFINITIONS */ /* FONT-FACE DEFINITIONS */
+/* ================================================= */
 
 @font-face {
   font-family: 'Wesli';
@@ -18,12 +22,25 @@ Waves' branding colors: #0096DC for overall items (blue)
   src: url('../css/fonts/engo.woff2') format('woff2');
 }
 
+
+/* ============================================================= */
+/* GLOBAL SETTINGS AND CLASSES */ /* GLOBAL SETTINGS AND CLASSES */
+/* ============================================================= */
+
 *, *::after, *::before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; 
     margin: 0;
     padding: 0;
+}
+
+html {}
+	
+body {
+	font-family: "Wesli";
+	color: #333333;
+	background: #ffffff;
 }
 
 .fade {
@@ -65,13 +82,10 @@ Waves' branding colors: #0096DC for overall items (blue)
     clear:both;
 }
 
-html {}
-	
-body {
-	font-family: "Wesli";
-	color: #333333;
-	background: #ffffff;
-}
+
+/* ================================================= */
+/* MAIN WRAPPER SETTINGS */ /* MAIN WRAPPER SETTINGS */
+/* ================================================= */
 
 #wrapper {
 	width: 100%;
@@ -82,8 +96,12 @@ body {
 	min-height: 320px;
 	margin: 0 auto;
 	overflow: hidden;
-	
 }
+
+
+/* =========================================================== */
+/* HEADER SETTINGS */ /* HEADER SETTINGS */ /* HEADER SETTINGS */
+/* =========================================================== */
 
 header, #tabs, #mBLeftBar, #mBBody {padding: 10px;}
 
@@ -141,10 +159,9 @@ header {
 .jurl {
     display: block;
 	width: 100%;
-    border:none;
-    color:white;
-    height:0.04rem;
-
+    border: none;
+    color: #ffffff;
+    height: 0.04rem;
     background: #0096dc; /* Old browsers */
     background: -moz-linear-gradient(left, #0096dc 0%, #0096dc 25%, #ffffff 50%, #ffffff 50%, #0096dc 75%, #0096dc 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(left, #0096dc 0%, #0096dc 25%, #ffffff 50%, #ffffff 50%, #0096dc 75%, #0096dc 100%); /* Chrome10-25,Safari5.1-6 */
@@ -152,12 +169,16 @@ header {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0096dc', endColorstr='#0096dc',GradientType=1 ); /* IE6-9 */
 }
 
+
+/* ==================================================== */
+/* /* TAB SELECTOR SETTINGS */ /* TAB SELECTOR SETTINGS */
+/* ==================================================== */
+
 #tabs {
 	position: relative;
 	width: 100%;
 	height: 75px;
 	overflow: hidden;
-/*	background: #4183D7;*/
     background: #0096DC;
 }
 
@@ -192,14 +213,23 @@ input.tabs-radio + label img {
 
 input.tabs-radio:hover + label img {
     opacity: .6;
-	
 }
 
 input.tabs-radio:checked + label  img {
     opacity: 1;
 }
 
+
+/* ============================================== */
+/* /* MAIN BODY SETTINGS */ /* MAIN BODY SETTINGS */
+/* ============================================== */
+
 #mainBody { overflow-y: scroll; }
+
+
+/* ============================================ */
+/* /* LEFT BAR SETTINGS */ /* LEFT BAR SETTINGS */
+/* ============================================ */
 
 #mBLeftBar {
 	display: table-cell;
@@ -216,14 +246,16 @@ input.tabs-radio:checked + label  img {
 	display: none;
 }
 
+
+/* ======================================================== */
+/* /* MAIN BODY-BODY SETTINGS */ /* MAIN BODY-BODY SETTINGS */
+/* ======================================================== */
+
 #mBBody {
 	display: table-cell;
 	position: relative;
 	width: auto;
-/*    max-width: 1920px;*/
 }
-
-#mBB-wallet {}
 
 #mBB-portfolio, #mBB-exchange, #mBB-voting, #mBB-history, #mBB-messages, #mBB-community {
 	display: none;
@@ -232,6 +264,13 @@ input.tabs-radio:checked + label  img {
 #LBmBB-portfolio, #LBmBB-exchange, #LBmBB-voting, #LBmBB-history, #LBmBB-messages, #LBmBB-community {
 	display: none;
 } 
+
+
+/* ================================================= */
+/* WALLET TAB PARAMETERS */ /* WALLET TAB PARAMETERS */
+/* ================================================= */
+
+#mBB-wallet {}
 
 .walletBox {
     position: relative;
@@ -263,7 +302,6 @@ input.tabs-radio:checked + label  img {
     font-family: 'Engo';
     font-size: 2.5rem;
     color: #AFAFAF;
-    
 }
 
 .wB-add {
@@ -323,7 +361,6 @@ input.tabs-radio:checked + label  img {
     height: 80%;
     margin: .45%;
     background: #0096DC;
-    
     overflow: hidden;
     font-family: 'Wesli';
     font-size: 1rem;
@@ -334,7 +371,6 @@ input.tabs-radio:checked + label  img {
     cursor: pointer;
     color: #ffffff;
     background: #5AC8D2;
-    
 }
 
 .wB-butSend {
@@ -363,6 +399,20 @@ input.tabs-radio:checked + label  img {
     padding: .5rem;
 }
 
+
+/* ====================================================== */
+/* PAYMENT FORMS PARAMETERS */ /* PAYMENT FORM PARAMETERS */
+/* ====================================================== */
+
+.paymentForm {
+    min-height: 200px;
+}
+
+
+/* ================================================= */
+/* WAVES STANDARD TABLES */ /* WAVES STANDARD TABLES */
+/* ================================================= */
+
 .wavesTable table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -372,9 +422,7 @@ input.tabs-radio:checked + label  img {
     margin-bottom: 2rem;
 }
 
-.wavesTable tr:hover td {
-	
-}
+.wavesTable tr:hover td {}
 
 .wavesTable tr:nth-child(odd) { 
     background-color: #F0F0F0; 
@@ -404,10 +452,13 @@ input.tabs-radio:checked + label  img {
 }
 
 
+/* =================================================== */
+/* HISTORY TAB PARAMETERS */ /* HISTORY TAB PARAMETERS */
+/* =================================================== */
+
 #hSearch {
     display: block;
     width: 100%;
-/*    border: 1px solid #CAE1FF;*/
     text-align: center;
 }
 
@@ -416,18 +467,15 @@ input.tabs-radio:checked + label  img {
     width: 100%;
     text-align: center;
     vertical-align: center;
-/*	background: #4183D7;*/
     background: #0096DC;
     padding: .4rem;
     color: white;
     font-size: 1.3rem;
-
 }
 
 .hS-element {
     display: inline-block;
     width: auto;
-/*    border: 1px solid #CAE1FF;*/
     padding: .5rem;
 }
 
@@ -461,8 +509,9 @@ input.tabs-radio:checked + label  img {
 }
 
 
-
-
+/* ===================================================== */
+/* MEDIA QUERIES */ /* MEDIA QUERIES */ /* MEDIA QUERIES */ 
+/* ===================================================== */
 
 @media only screen and (max-width: 1024px) {
 
