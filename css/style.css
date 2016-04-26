@@ -323,7 +323,7 @@ input.tabs-radio:checked + label  img {
     text-align: right;
     z-index: 99 !important;
     font-family: 'Engo';
-    font-size: 3rem;
+    font-size: 2.75rem;
     color: #0096DC;  
     letter-spacing: -6px;
 }
@@ -509,6 +509,24 @@ input.tabs-radio:checked + label  img {
 
 .form-control {
     padding: .3rem;
+}
+
+.paymentForm-but {
+    position: relative;
+    margin: 0 auto;
+    width: 5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    background: #0096DC;
+	font-size: 1rem;
+    line-height: 2.3rem;
+	color: #ffffff;
+    text-align: center;
+}
+
+.paymentForm-but:hover {
+    cursor: pointer;
+    background: #5AC8D2;
 }
 
 
