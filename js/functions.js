@@ -7,92 +7,13 @@ var balance = 0;
 
 function loadBlockheight() {
 
-
 	$.getJSON(server+'/blocks/height', function(result) {
 
-		$("#blockheight").html('Block Height: '+result.height);
+		$("#blockheight").html(result.height);
 
 	});
 
 }
-
-
-$(document).ready(function() {
-
-
-	loadAccount();
-	loadHistory();
-
-	loadBlockheight();
-	loadBalance();
-
-	setInterval(loadBlockheight(), 10000);
-	
-
-	$("#accountPage").on("click", function() {
-
-		loadAccount();
-
-	});
-	
-	$("#peerspage").on("click", function() {
-
-		loadPeers();
-
-	});
-
-	$("#blockchainpage").on("click", function() {
-		loadBlock();
-	});
-
-
-
-	$("#walletpage").on("click", function() {
-
-		loadWallet();
-		
-	});
-
-
-
-	$("#consensuspage").on("click", function() {
-
-		loadConsensus();
-		
-	});
-
-	$("#paymentpage").on("click", function() {
-
-		loadPayment();
-		
-	});
-
-	$("#debugpage").on("click", function() {
-
-		loadDebug();
-		
-	});
-
-	$("#balancepage").on("click", function() {
-
-		loadHistory();
-
-	});
-
-	$(".wavesNavbar").on("click", function() {
-
-		$(".wavesNavbar").removeClass('active');
-
-		$(this).addClass('active');
-
-	});
-
-	
-
-	
-
-});
-
 
 
 function loadBalance () {
@@ -101,6 +22,8 @@ function loadBalance () {
 	$.getJSON(server+'/addresses/', function(response) {
 
 		balance = 0;
+
+		var account = 0;
 
 		$.each(response, function(key, value) {
 
@@ -116,7 +39,19 @@ function loadBalance () {
 
 					$('.balancewaves').html(balance + ' Waves');
 
+					if(typeof(Storage) !== "undefined") {
+
+						var storageKey = 'waves-'+innervalue;
+					    
+						localStorage.innervalue = balanceResult.balance;
+
+					} else {
+					    // Sorry! No Web Storage support.. Let's not save it
+					}
+
 				});
+
+				account++;
 
 			});
 
@@ -184,106 +119,25 @@ function loadHistory() {
 		
 	});
 
-
-	
-
 	setTimeout(function() {
-
-		console.log(appContainer);
 
 		$("#transactionhistory").html(appContainer);
 
 	}, 1000);
 
-
-
-
-
-
 }
 
 
-
-function loadAccount() {
-
-
-	var appContainer;
-	var welcomeJumbo = '<h2>Your Balance</h2>';
-
-	appContainer = welcomeJumbo;	
-
-	appContainer = '<div class="row"><div class="col-md-12"><h2>Balance: <span class="balancewaves"></span></div></div>';
-
-	$.getJSON(server+'/addresses/', function(response) {
-
-		appContainer += '<div class="container"><h2>Your Wallet</h2>';
-
-		appContainer += '<table class="table table-striped">';
-		appContainer += '<thead><tr><th>Key</th><th>Value</th></tr></thead>';
-		appContainer += '<tbody>';
-
-		$.each(response, function(key, value) {
-
-			$.each(value, function(innerkey, innervalue) {
-
-				appContainer += '<tr><td>';
-				appContainer += innerkey;
-				appContainer += '</td><td>';
-				appContainer += innervalue;
-				appContainer += '</td></tr>';
-
-			});
-
-			
-
-		});
-
-		appContainer += '<tbody>';
-
-
-
-
-		appContainer += '</div>';
-
-		appContainer += '<button class="btn btn-primary" id="newAddress">New Address</button>';
-
-		
-		$("#app").html(appContainer);
-		$('.balancewaves').html($("#balancespan").html());
-
-		$("#newAddress").on("click", function() {
-
-			$.post(server+'/addresses/', function(createAddress) {
-
-				$(".wavesNavbar").removeClass('active');
-
-				$("#walletpage").addClass('active');
-
-				loadWallet();
-
-			});
-
-		});
-
-
-	});
-
-
-
-}
 
 function loadWallet() {
 
 	var appContainer;
-	var welcomeJumbo = '<div class="jumbotron"><h2>Your Waves Wallet</h2></div>';
-
-	appContainer = welcomeJumbo;
 
 	$.getJSON(server+'/addresses/', function(response) {
 
-		appContainer += '<div class="container"><h2>Your Wallet</h2>';
+		appContainer += '<h2>Your Wallet</h2><div class="wavesTable">';
 
-		appContainer += '<table class="table table-striped">';
+		appContainer += '<table>';
 		appContainer += '<thead><tr><th>Key</th><th>Value</th></tr></thead>';
 		appContainer += '<tbody>';
 
@@ -310,7 +164,7 @@ function loadWallet() {
 		appContainer += '<button class="btn btn-primary" id="newAddress">New Address</button>';
 
 		
-		$("#app").html(appContainer);
+		$("#walletContainer").html(appContainer);
 
 		$("#newAddress").on("click", function() {
 
@@ -327,6 +181,7 @@ function loadWallet() {
 
 }
 
+/*
 function loadPeers() {
 
 	var appContainer;
@@ -513,61 +368,76 @@ function loadConsensus() {
 
 }
 
+*/
+
 function loadPayment () {
 
+	var	paymentForm = '<div id="wallet_accounts"><h2>Your Wallet</h2> <button class="btn btn-primary" id="newAddress">New Address</button></div>';
+		paymentForm += '<div id="accounts_sender" class="wavesTable"><table><thead><tr><th>Address</th><th>Balance</th></thead><tbody id="accounts_table"></tbody></table></div><hr/>';
+		paymentForm += '</div><div id="payment_response"></div>';
 
-	var paymentForm = '<div class="row"><div class="col-md-6">'+
-						
-						'<form id="paymentForm">'+
-						'<div class="form-group">'+
-						  '  <label for="sender">Sender (choose from Your Accounts)</label>'+
-						  '  <input type="text" class="form-control" id="sender" placeholder="Sender">'+
-						  '</div>'+
-						 '<div class="form-group">'+
-						  '  <label for="recipient">Recipient</label>'+
-						  '  <input type="text" class="form-control" id="recipient" placeholder="Recipient">'+
-						  '</div>'+
-						  '<div class="form-group">'+
-						  ' <label for="sendamount">Amount</label>'+
-						  '  <input type="number" class="form-control" id="sendamount" placeholder="Amount" min="0">'+
-						  '</div>'+
-						  '<p>Fee 1 Waves</p>'+
-						  '<hr>'+
-						  '<button class="btn btn-default" id="sendpayment">Submit</button>'+
-						'</form>'+
-						'<div class="alert alert-primary" id="payment_response"></div>';
+		paymentForm += '<h2>Send Payment</h2>'+
+						'<form id="paymentForm" style="height: 200px;">'+
+							'<div class="wavesTable">'+
+							  '  <table>'+
+							  '  	<thead>'+
+							  '			<tr>'+
+							  '				<th>#</th>'+
+							  '				<th>Input</th>'+
+							  '			</tr>'+
+							  '  	</thead>'+
+							  '		<tbody>'+
+							  '			<tr>'+
+							  '				<td>Sender (choose one account with balance from above)</td>'+
+							  '				<td><input type="text" class="form-control" id="sender" placeholder="Sender"></td>'+
+							  '			</tr>'+
+							  '			<tr>'+
+							  '				<td>Recipient</td>'+
+							  '				<td><input type="text" class="form-control" id="recipient" placeholder="Recipient"></td>'+
+							  '			</tr>'+
+							  '			<tr>'+
+							  '				<td>Amount</td>'+
+							  '				<td><input type="number" class="form-control" id="sendamount" placeholder="Amount" min="0"></td>'+
+							  '			</tr>'+
+							  '			<tr>'+
+							  '				<td>Fee</td>'+
+							  '				<td><p>Fee 1 Waves</p></td>'+
+							  '			</tr>'+
+							  '			<tr>'+
+							  '				<td>Send</td>'+
+							  '				<td><button id="sendpayment" value="send">Submit</button></td>'+
+							  '			</tr>'+
+
+							  '		</tbody>'+
+							  '	  </table>'+
+							  '</div>'+
+						'</form>';
 
 
-		paymentForm += '</div><div class="col-md-6"><h2>Your accounts</h2>';
-
-		paymentForm += '<div id="accounts_sender"></div>';
 		paymentForm += '</div>';
 
 
-		$("#app").html(paymentForm);
+	$("#portfolio").html(paymentForm);
 
 
-		$.getJSON(server+'/addresses/', function(response) {
+	$.getJSON(server+'/addresses/', function(response) {
 
-			balance = 0;
+		balance = 0;
 
-			$.each(response, function(key, value) {
+		$.each(response, function(key, value) {
 
-				$.each(value, function(innerkey, innervalue) {
+			$.each(value, function(innerkey, innervalue) {
 
-					$.getJSON(server+'/addresses/balance/'+innervalue, function(balanceResult) {
+				$.getJSON(server+'/addresses/balance/'+innervalue, function(balanceResult) {
 
-						$("#accounts_sender").append(innervalue +' - Balance: '+balanceResult.balance+'<br>');
 
-					});
+					$("#accounts_table").append('<tr><td>'+innervalue +'</td><td>'+balanceResult.balance+' Waves</td></tr>');
 
 				});
 
 			});
 		});
-
-
-		
+	});
 
 
 	$("#sendpayment").on("click", function(e) {
@@ -585,20 +455,67 @@ function loadPayment () {
 
 				if(recipient > '') {
 
+					var number = Number(amount);
+
 					$.ajax({
 						url: server+'/payment',
 					    data: JSON.stringify({
-							"amount": amount,
+							"amount": number,
 							"fee": 1,
 							"sender": sender,
 							"recipient": recipient
 						}),
 					    type: "POST",
 					    success: function(successrequest){
-					        console.log(successrequest);
+				
+
+					        $("#sendamount").val('');
+					        $("#recipient").val('');
+					        $("#sender").val('');
+
+					        var messageTable = '<div class="wavesTable">'+
+					        						'<table>'+
+					        						'	<thead>'+
+					        						'		<tr>'+
+						        					'			<th>Key</th>'+
+						        					'			<th>Value</th>'+
+					        						'		</tr>'+
+				        							'	</thead>'+
+			        								'	<tbody>'+
+			        								'		<tr>'+
+						        					'			<th>Timestamp</th>'+
+						        					'			<td>'+successrequest.timestamp+'</td>'+
+					        						'		</tr>'+
+					        						'		<tr>'+
+						        					'			<th>Sender</th>'+
+						        					'			<td>'+successrequest.sender+'</td>'+
+					        						'		</tr>'+
+					        						'		<tr>'+
+						        					'			<th>Recipient</th>'+
+						        					'			<td>'+successrequest.recipient+'</td>'+
+					        						'		</tr>'+
+					        						'		<tr>'+
+						        					'			<th>Amount</th>'+
+						        					'			<td>'+successrequest.amount+' Waves</td>'+
+						        					'		</tr>'+
+						        					'		<tr>'+
+						        					'			<th>Fee</th>'+
+						        					'			<td>'+successrequest.fee+' Waves</td>'+
+						        					'		</tr>'+
+						        					'		<tr>'+
+						        					'			<th>Signature</th>'+
+						        					'			<td>'+successrequest.signature+'</td>'+
+						        					'		</tr>'+
+			        								'	</tbody>'+
+		        									'</table>'+
+	        									'</div>';
+
+					        $("#payment_response").html('<h3>Sending successfull</h3>'+messageTable);
+
 					    },
 					    error: function(response){
 					        $("#payment_response").html(response.message);
+					        console.log(response);
 					    }
 					});
 
@@ -618,7 +535,23 @@ function loadPayment () {
 	});
 
 
+	$("#newAddress").on("click", function() {
+
+		$.post(server+'/addresses/', function(createAddress) {
+
+			console.log(createAddress);
+
+			$("#accounts_table").append('<tr><td>'+createAddress.address +'</td><td>0 Waves</td></tr>');
+
+
+		});
+
+	});
+
+
 }
+
+/*
 
 function loadDebug () {
 
@@ -675,3 +608,5 @@ function loadDebug () {
 
 
 }
+
+*/

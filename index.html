@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/jquery.modal.css">
+
+
+    
 </head>
 
 <body>
@@ -14,7 +17,7 @@
 	<header class="fFade noSelect">
 		<img id="topLogo" src="img/topleftlogo.svg" alt="Waves platform logo" />
 		<img id="topLogoH" src="img/topleftlogo_hor.svg" alt="Waves platform logo horizontal" />
-		<span id="version" class="centerIt">Waves Platform Lite Client v0 alpha</span>
+		<span id="version" class="centerIt">Waves Platform Lite Client v0 alpha - Block: <span id="blockheight"></span></span>
 		<div id=header-Iconset>
             <a href="#header-wPop-pref" rel="modal:open">
                 <img class="header-Icon fade" src="img/uiTB-iconset-preferences.svg" alt="Preferences" />
@@ -210,10 +213,47 @@
                             <a href="#wB-butSend-WAV" rel="modal:open">
                                 <div class="wB-but wB-butSend fade"><p>SEND</p></div>
                             </a>
-                            <div id="wB-butSend-WAV" class="wavesPop" style="display: none;">
+                            <div id="wB-butSend-WAV" class="wavesPop" style="display: none; height:600px;">
                                 <img class="wPop-header" src="img/modal-header.svg" />
                                 <div class="wPop-content">
-                                    <p>Example text for the SEND WAVES pop-up</p>
+                            
+                                    <h2>Send Payment</h2>
+                                    <form id="paymentForm" style="height: 200px;">
+                                        <div class="wavesTable">
+                                            <table>
+                                               <thead>
+                                                   <tr>
+                                                       <th>#</th>
+                                                       <th>Input</th>
+                                                   </tr>
+                                               </thead>
+                                               <tbody>
+                                                   <tr>
+                                                       <td>Sender (choose one account with balance from above)</td>
+                                                       <td><input type="text" class="form-control" id="wavessender" placeholder="Sender"></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Recipient</td>
+                                                       <td><input type="text" class="form-control" id="wavesrecipient" placeholder="Recipient"></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Amount</td>
+                                                       <td><input type="number" class="form-control" id="wavessendamount" placeholder="Amount" min="0"></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Fee</td>
+                                                       <td><p>Fee 1 Waves</p></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Send</td>
+                                                       <td><!-- <button id="wavessend" value="send">Submit</button> --></td>
+                                                   </tr>
+                                               </tbody>
+                                             </table>
+                                          </div>
+                                    </form>
+                                    <div id="sentpayment"></div>
+
                                 </div>
                             </div>
                             
@@ -306,7 +346,7 @@
                     </div>
                 </div> <!-- Div mBB-wallet END -->
                 
-                <div id="mBB-portfolio" class="mBB-content"><p class="centerIt">[ mBB-portfolio SECTION TEST CONTENT ]</p></div>
+                <div id="mBB-portfolio" class="mBB-content"><p class="centerIt"><div id="portfolio"></div></p></div>
                 <div id="mBB-exchange" class="mBB-content"><p class="centerIt">[ mBB-exchange SECTION TEST CONTENT ]</p></div>
                 <div id="mBB-voting" class="mBB-content"><p class="centerIt">[ mBB-voting SECTION TEST CONTENT ]</p></div>
                 <div id="mBB-history" class="mBB-content">
@@ -596,12 +636,12 @@
 	</div> <!-- Wrapper div END -->
 
     <!-- JAVASCRIPT -->
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-    <script src="js/main.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="js/jquery.modal.js"></script>
-	<script src="js/functions.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/functions.js"></script>
     <script src="js/style.js"></script> 
     
-
+    <script src="js/main.js"></script>
 </body>
 </html>
