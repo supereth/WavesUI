@@ -366,6 +366,8 @@ input.tabs-radio:checked + label  img {
     font-family: 'Wesli';
     font-size: 1rem;
     color: #e6e6ff;
+    border: none;
+    outline: none;
 }
 
 .wB-but:hover {
@@ -487,6 +489,8 @@ input.tabs-radio:checked + label  img {
 	font-size: 1.25rem;
 	color: #333333;
     letter-spacing: .2rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
     padding-bottom: .5rem;
     font-weight: 200;
 }
@@ -514,6 +518,7 @@ input.tabs-radio:checked + label  img {
 
 .paymentForm-but {
     border: none;
+    outline: none;
     position: relative;
     margin: 0 auto;
     width: 5rem;
