@@ -135,7 +135,7 @@ function loadWallet() {
 
 	$.getJSON(server+'/addresses/', function(response) {
 
-		appContainer += '<h2>Your Wallet</h2><div class="wavesTable">';
+		appContainer += '<h2>YOUR WALLETS</h2><div class="wavesTable">';
 
 		appContainer += '<table>';
 		appContainer += '<thead><tr><th>Key</th><th>Value</th></tr></thead>';
@@ -372,18 +372,18 @@ function loadConsensus() {
 
 function loadPayment () {
 
-	var	paymentForm = '<div id="wallet_accounts"><h2>Your Wallet</h2> <button class="btn btn-primary" id="newAddress">New Address</button></div>';
-		paymentForm += '<div id="accounts_sender" class="wavesTable"><table><thead><tr><th>Address</th><th>Balance</th></thead><tbody id="accounts_table"></tbody></table></div><hr/>';
+	var	paymentForm = '<div id="wallet_accounts"><h2>YOUR WALLETS</h2> <button class="btn btn-primary" id="newAddress">New Address</button></div>';
+		paymentForm += '<div id="accounts_sender" class="wavesTable"><table><thead><tr><th>ADDRESS</th><th>BALANCE</th></thead><tbody id="accounts_table"></tbody></table></div><hr/>';
 		paymentForm += '</div><div id="payment_response"></div>';
 
-		paymentForm += '<h2>Send Payment</h2>'+
-						'<form id="paymentForm" style="height: 200px;">'+
+		paymentForm += '<h2>SEND PAYMENT</h2>'+
+						'<form id="paymentForm">'+
 							'<div class="wavesTable">'+
 							  '  <table>'+
 							  '  	<thead>'+
 							  '			<tr>'+
-							  '				<th>#</th>'+
-							  '				<th>Input</th>'+
+							  '				<th>DESCRIPTION</th>'+
+							  '				<th>INPUT</th>'+
 							  '			</tr>'+
 							  '  	</thead>'+
 							  '		<tbody>'+
@@ -405,7 +405,7 @@ function loadPayment () {
 							  '			</tr>'+
 							  '			<tr>'+
 							  '				<td>Send</td>'+
-							  '				<td><button id="sendpayment" value="send">Submit</button></td>'+
+							  '				<td><button id="sendpayment" class="paymentForm-but fade" value="send">SUBMIT</button></td>'+
 							  '			</tr>'+
 
 							  '		</tbody>'+

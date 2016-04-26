@@ -266,9 +266,9 @@ input.tabs-radio:checked + label  img {
 } 
 
 
-/* ================================================= */
-/* WALLET TAB PARAMETERS */ /* WALLET TAB PARAMETERS */
-/* ================================================= */
+/* ============================================ */
+/* WALLET TAB */ /* WALLET TAB */ /* WALLET TAB */
+/* ============================================ */
 
 #mBB-wallet {}
 
@@ -512,6 +512,7 @@ input.tabs-radio:checked + label  img {
 }
 
 .paymentForm-but {
+    border: none;
     position: relative;
     margin: 0 auto;
     width: 5rem;
@@ -530,9 +531,52 @@ input.tabs-radio:checked + label  img {
 }
 
 
-/* =================================================== */
-/* HISTORY TAB PARAMETERS */ /* HISTORY TAB PARAMETERS */
-/* =================================================== */
+/* ==================================================== */
+/* PORTFOLIO TAB *//* PORTFOLIO TAB */ /* PORTFOLIO TAB */  
+/* ==================================================== */
+
+#portfolio h2 {
+    background-color: #ffffff;
+	border: 0px solid #F0F0F0;
+	text-align: center;
+	font-size: 1.25rem;
+	color: #333333;
+    letter-spacing: .2rem;
+    padding-bottom: .5rem;
+    font-weight: 200;
+}
+
+#portfolio .btn {
+    border: none;
+    width: 8rem;
+    margin-bottom: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    background: #0096DC;
+	font-size: 1rem;
+    line-height: 2.3rem;
+	color: #ffffff;
+    text-align: center;
+    
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+}
+
+#portfolio .btn:hover {
+    cursor: pointer;
+    background: #5AC8D2;
+}
+
+#portfolio table thead tr th {
+    padding: .5rem;
+}
+
+
+/* =============================================== */
+/* HISTORY TAB */ /* HISTORY TAB */ /* HISTORY TAB */ 
+/* =============================================== */
 
 #hSearch {
     display: block;
