@@ -422,13 +422,27 @@ input.tabs-radio:checked + label  img {
     margin-bottom: 2rem;
 }
 
-.wavesTable tr:hover td {}
+.wTMainHeader tr {
+    background-color: #0096DC;
+	border: 0px solid #F0F0F0;
+	text-align: center;
+	font-size: 1.12rem;
+	color: #ffffff;   
+}
 
-.wavesTable tr:nth-child(odd) { 
+.wavesTable thead {
+    background-color: #0096DC;
+	border: 0px solid #F0F0F0;
+	text-align: center;
+	font-size: 1.12rem;
+	color: #ffffff;
+}
+
+.wavesTable tbody tr:nth-child(odd) { 
     background-color: #F0F0F0; 
 }
 
-.wavesTable tr:nth-child(even) { 
+.wavesTable tbody tr:nth-child(even) { 
     background-color: #ffffff; 
 }
 
@@ -439,18 +453,26 @@ input.tabs-radio:checked + label  img {
 	padding: .5rem;
 }
 
-.wavesTable tr:hover {
+.wavesTable tbody tr:hover {
     background: #CAE1FF;
 }
 
-.wavesTable tr:first-child td {
-    background-color: #0096DC;
+.wTMainHeader {
+    background-color: #ffffff;
 	border: 0px solid #F0F0F0;
 	text-align: center;
-	font-size: 1.12rem;
-	color: #ffffff;
+	font-size: 1.25rem;
+	color: #333333;
+    letter-spacing: .2rem;
+    padding-bottom: .5rem;
 }
 
+#transactionhistory tr {
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+}
 
 /* =================================================== */
 /* HISTORY TAB PARAMETERS */ /* HISTORY TAB PARAMETERS */
@@ -527,7 +549,6 @@ input.tabs-radio:checked + label  img {
 		margin-left: .5rem;
 		margin-right: .5rem;
 	}
-
 }
 
 @media only screen and (max-width: 800px) {
@@ -537,7 +558,6 @@ input.tabs-radio:checked + label  img {
 	#mBLeftBar {
 		width: 100px;
 	}
-
 }
 
 @media only screen and (max-width: 640px) {
@@ -549,7 +569,6 @@ input.tabs-radio:checked + label  img {
 		margin-left: .2rem;
 		margin-right: .2rem;
 	}
-
 }
 
 @media only screen and (max-width: 512px) {
@@ -562,7 +581,6 @@ input.tabs-radio:checked + label  img {
 		margin-left: .1rem;
 		margin-right: .1rem;
 	}
-
 }
 
 @media only screen and (max-width: 420px) {
@@ -585,5 +603,4 @@ input.tabs-radio:checked + label  img {
 	#tabs-Iconset img {
 		margin-top: .25rem;
 	}
-
 }
