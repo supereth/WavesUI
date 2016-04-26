@@ -42,6 +42,14 @@ $(window).resize(function(){
 });
 
 
+// Fee styling on .paymentForm
+$(window).ready(function(){
+   $(".paymentForm tr td:contains('Fee')").each(function(){
+       $(this).parent().addClass( "paymentFormFee" );
+   }); 
+});
+
+
 /* FOR LATER REFINEMENT-
  if ($('input[type=radio][name=tabs-Icons]').val() == 'mBB-wallet' && (window.matchMedia('(max-width: 1024px)')).matches) { };
 */

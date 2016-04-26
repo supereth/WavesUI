@@ -400,15 +400,6 @@ input.tabs-radio:checked + label  img {
 }
 
 
-/* ====================================================== */
-/* PAYMENT FORMS PARAMETERS */ /* PAYMENT FORM PARAMETERS */
-/* ====================================================== */
-
-.paymentForm {
-    min-height: 200px;
-}
-
-
 /* ================================================= */
 /* WAVES STANDARD TABLES */ /* WAVES STANDARD TABLES */
 /* ================================================= */
@@ -473,6 +464,53 @@ input.tabs-radio:checked + label  img {
     transition: all .2s ease;
 	-webkit-transition: all .2s ease;
 }
+
+
+/* ====================================================== */
+/* PAYMENT FORMS PARAMETERS */ /* PAYMENT FORM PARAMETERS */
+/* ====================================================== */
+
+.paymentForm {
+    height: auto;
+    padding-bottom: 1rem;
+}
+
+.wPop-content {
+    margin-top: -1.5rem;;
+}
+
+.paymentForm h2 {
+    background-color: #ffffff;
+	border: 0px solid #F0F0F0;
+	text-align: center;
+	font-size: 1.25rem;
+	color: #333333;
+    letter-spacing: .2rem;
+    padding-bottom: .5rem;
+    font-weight: 200;
+}
+
+.paymentForm thead tr {
+    background-color: #0096DC;
+	text-align: center;
+	font-size: 1.12rem;
+    line-height: 2.3rem;
+	color: #ffffff;
+}
+
+.paymentForm tbody td {
+    padding: .25rem;
+}
+
+.paymentFormFee {
+    background-color: #F0F0F0;
+    font-style: italic;
+}
+
+.form-control {
+    padding: .3rem;
+}
+
 
 /* =================================================== */
 /* HISTORY TAB PARAMETERS */ /* HISTORY TAB PARAMETERS */
