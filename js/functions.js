@@ -400,14 +400,17 @@ function loadPayment () {
 							  '				<td><input type="number" class="form-control" id="sendamount" placeholder="Amount" min="0"></td>'+
 							  '			</tr>'+
 							  '			<tr>'+
+							  '				<td>Fee</td>'+
+							  '				<td><p>Fee 1 Waves</p></td>'+
+							  '			</tr>'+
+							  '			<tr>'+
 							  '				<td>Send</td>'+
 							  '				<td><button id="sendpayment" value="send">Submit</button></td>'+
 							  '			</tr>'+
+
 							  '		</tbody>'+
-							  '	  </table'+
+							  '	  </table>'+
 							  '</div>'+
-							  '<p>Fee 1 Waves</p>'+
-							  '<hr>'+
 						'</form>';
 
 
