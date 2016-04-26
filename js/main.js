@@ -1,7 +1,5 @@
 "use strict";
 
-
-
  initApp();
 
 $(document).ready(function(){
@@ -19,7 +17,6 @@ $(document).ready(function(){
             case 'mBB-portfolio':
                 loadPayment();
             break;
-
         }
         
         // Displays left bar depending on tab activated
@@ -30,6 +27,7 @@ $(document).ready(function(){
             $('#mBLeftBar').css('display', 'table-cell');
         }
     });
+
 });
 
 

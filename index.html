@@ -213,10 +213,47 @@
                             <a href="#wB-butSend-WAV" rel="modal:open">
                                 <div class="wB-but wB-butSend fade"><p>SEND</p></div>
                             </a>
-                            <div id="wB-butSend-WAV" class="wavesPop" style="display: none;">
+                            <div id="wB-butSend-WAV" class="wavesPop" style="display: none; height:600px;">
                                 <img class="wPop-header" src="img/modal-header.svg" />
                                 <div class="wPop-content">
-                                    <p>Example text for the SEND WAVES pop-up</p>
+                            
+                                    <h2>Send Payment</h2>
+                                    <form id="paymentForm" style="height: 200px;">
+                                        <div class="wavesTable">
+                                            <table>
+                                               <thead>
+                                                   <tr>
+                                                       <th>#</th>
+                                                       <th>Input</th>
+                                                   </tr>
+                                               </thead>
+                                               <tbody>
+                                                   <tr>
+                                                       <td>Sender (choose one account with balance from above)</td>
+                                                       <td><input type="text" class="form-control" id="wavessender" placeholder="Sender"></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Recipient</td>
+                                                       <td><input type="text" class="form-control" id="wavesrecipient" placeholder="Recipient"></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Amount</td>
+                                                       <td><input type="number" class="form-control" id="wavessendamount" placeholder="Amount" min="0"></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Fee</td>
+                                                       <td><p>Fee 1 Waves</p></td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Send</td>
+                                                       <td><!-- <button id="wavessend" value="send">Submit</button> --></td>
+                                                   </tr>
+                                               </tbody>
+                                             </table>
+                                          </div>
+                                    </form>
+                                    <div id="sentpayment"></div>
+
                                 </div>
                             </div>
                             
