@@ -378,7 +378,7 @@ function loadPayment () {
 
 		paymentForm += '<h2 style="margin-top: .5rem;">SEND PAYMENT</h2>'+
 						'<form id="paymentForm">'+
-							'<div class="wavesTable">'+
+							'<div class="paymentForm">'+
 							  '  <table>'+
 							  '  	<thead>'+
 							  '			<tr>'+

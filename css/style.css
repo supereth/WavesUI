@@ -400,6 +400,7 @@ input.tabs-radio:checked + label  img {
 #wHistory {
 	width:100%;
     padding: .5rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -514,6 +515,8 @@ input.tabs-radio:checked + label  img {
 
 .form-control {
     padding: .3rem;
+    font-family: 'Wesli';
+    font-size: 1rem;
 }
 
 .paymentForm-but {
@@ -535,6 +538,14 @@ input.tabs-radio:checked + label  img {
 .paymentForm-but:hover {
     cursor: pointer;
     background: #5AC8D2;
+}
+
+#mBB-portfolio #paymentForm {
+   text-align: center;
+}
+
+#mBB-portfolio .paymentForm thead tr {
+    line-height: 1.5rem;
 }
 
 
@@ -639,7 +650,8 @@ input.tabs-radio:checked + label  img {
 }
 
 #hResults {
-    height: 200px;
+    height: auto;
+    padding-bottom: 1rem;
 }
 
 
@@ -698,6 +710,13 @@ input.tabs-radio:checked + label  img {
 
 @media only screen and (max-width: 420px) {
 
+    html { font-size: 12px; }
+
+    .wavesTable td {
+        padding-left: .2rem;
+        padding-right: .2rem;
+    }
+    
 	#topLogoH { 
 		width: 10rem; 
 		margin-top: .38rem;
@@ -717,9 +736,12 @@ input.tabs-radio:checked + label  img {
 		margin-top: .25rem;
 	}
     
+/*    #mBLeftBar { display: none; }*/
+    
     #mBB-wallet { 
         height: auto;
         padding-bottom: 2rem;
+        text-align: center;
     }
     
     .walletBox { 
@@ -727,11 +749,13 @@ input.tabs-radio:checked + label  img {
         height: 175px;
     }
     
+/*
     .wB-name { font-size: 2rem; }
     .wB-balInt { font-size: 2.3rem; }
     .wB-balDec { font-size: 1.5rem; }
     .wB-add { font-size: .75rem; }
+*/
     .wB-buttons { height: 22.5%; }
-    .wB-but { font-size: .75rem; }
+/*    .wB-but { font-size: .75rem; }*/
     #wHistory { display: none; }
 }
