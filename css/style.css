@@ -110,6 +110,7 @@ header {
 	width: 100%;
 	height: 50px;
     background: #0096DC;
+    z-index: 101;
     
 }
 
@@ -180,6 +181,10 @@ header {
 	height: 75px;
 	overflow: hidden;
     background: #0096DC;
+    -webkit-box-shadow: 0px 12px 12px -12p rgba(0,0,0, .2);
+    -moz-box-shadow: 0px 12px 12px -12p rgba(0,0,0, .2);
+    box-shadow: 0px 12px 12px -12px rgba(0,0,0, .2);
+    z-index: 100;
 }
 
 #tabs-Iconset {
@@ -348,7 +353,6 @@ input.tabs-radio:checked + label  img {
     width: 100%;
     height: 20%;
     padding: 1%;
-    padding-left: 1%;
 }
 
 .wB-buttons a {
@@ -365,14 +369,13 @@ input.tabs-radio:checked + label  img {
     overflow: hidden;
     font-family: 'Wesli';
     font-size: 1rem;
-    color: #e6e6ff;
+    color: #ffffff;
     border: none;
     outline: none;
 }
 
 .wB-but:hover {
     cursor: pointer;
-    color: #ffffff;
     background: #5AC8D2;
 }
 
@@ -711,9 +714,68 @@ input.tabs-radio:checked + label  img {
 	}
 }
 
+/* Mobile version - Landscape (iPhone up to 6, all Samsung Galaxy, all HTC) */
+@media only screen and (max-width: 736px) and (max-height: 420px) {
+    
+    html { font-size: 12px; }
+    
+    header { 
+        height: 30px;
+        padding: 0;
+    }
+    
+    #topLogoH { 
+		width: 10rem; 
+		margin-top: .25rem;
+	}
+    
+    #header-Iconset {
+        position: absolute;
+        right: .25rem;
+        top: .5rem;
+    }
+    
+    .header-Icon {
+		width: 1.5rem;
+        margin: 0;
+        padding: 0;
+		margin-right: .35rem;
+	}
+    
+    .jurl { display: none; }
+    
+    #tabs { 
+        height: 40px;
+    } 
+    
+     #tabs-Iconset { 
+        height: 90%;
+        margin-top: -.25rem;
+    }
+    
+    #tabs-Iconset img {
+		padding-left: .4rem;
+        padding-right: .4rem;
+	}
+    
+    #mBB-wallet { 
+        height: auto;
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+    
+    .walletBox { 
+        width: 275px; 
+        height: 175px;
+    }
+}
+
+/* Mobile version - Portrait */
 @media only screen and (max-width: 420px) {
 
     html { font-size: 12px; }
+    
+    header { height: 40px; }
 
     .wavesTable td {
         padding-left: .2rem;
@@ -731,7 +793,8 @@ input.tabs-radio:checked + label  img {
 		margin-top: .2rem;
 	}
 	
-	#tabs { height: 50px; 
+	#tabs { 
+        height: 50px; 
 		text-align: center;
 	}
 	
@@ -739,7 +802,7 @@ input.tabs-radio:checked + label  img {
 		margin-top: .25rem;
 	}
     
-/*    #mBLeftBar { display: none; }*/
+    .jurl { height: 0.08rem; }
     
     #mBB-wallet { 
         height: auto;
@@ -761,4 +824,5 @@ input.tabs-radio:checked + label  img {
     .wB-buttons { height: 22.5%; }
 /*    .wB-but { font-size: .75rem; }*/
     #wHistory { display: none; }
+    
 }
