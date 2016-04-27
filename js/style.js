@@ -22,6 +22,7 @@ function LeftBarVis(){
     
     if (window.matchMedia('(max-width: 420px)').matches) {
         $('#mBLeftBar').css('display', 'none');
+        $('#mBBody').css('width', $wrapW).css('text-align', 'center');
     } else if ($('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-wallet' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-history' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-community') {
             $('#mBLeftBar').css('display', 'none');
             $('#mBBody').css('width', $wrapW);

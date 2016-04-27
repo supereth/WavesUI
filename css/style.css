@@ -548,6 +548,9 @@ input.tabs-radio:checked + label  img {
     line-height: 1.5rem;
 }
 
+#mBB-portfolio .paymentForm table {
+    padding-bottom: 1rem;
+}
 
 /* ==================================================== */
 /* PORTFOLIO TAB *//* PORTFOLIO TAB */ /* PORTFOLIO TAB */  
