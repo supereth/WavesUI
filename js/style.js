@@ -2,25 +2,12 @@
 
 var $wrapW = $('#wrapper').width(),
     $mbBodyH = $('#mainBody').height();
-    
-
-        
-//function LeftBarVis(){
-//    
-//    if ($('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-wallet' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-history' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-community') {
-//            $('#mBLeftBar').css('display', 'none');
-//            $('#mBBody').css('width', $wrapW);
-//            $('#mBB-wallet').css('text-align', 'center');
-//    } else {
-//            $('#mBLeftBar').css('display', 'table-cell');    
-//    } 
-//};
 
 
 // Left bar active/hidden settings
 function LeftBarVis(){
     
-    if (window.matchMedia('(max-width: 420px)').matches) {
+    if (window.matchMedia('(max-width: 420px), (max-width: 736px) and (max-height: 420px)').matches) {
         $('#mBLeftBar').css('display', 'none');
         $('#mBBody').css('width', $wrapW).css('text-align', 'center');
     } else if ($('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-wallet' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-history' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-community') {
@@ -48,6 +35,7 @@ $(window).on("load resize", function(e){
 	$('#mainBody').css('height', $mainBodyH);
 	$('#mBLeftBar').css('height', $mainBodyH);
 	$('#mBBody').css('width', $mbBodyW);
+    
     LeftBarVis();
     
 });
