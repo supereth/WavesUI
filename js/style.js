@@ -4,17 +4,32 @@ var $wrapW = $('#wrapper').width(),
     $mbBodyH = $('#mainBody').height();
     
 
-// Left bar active/hidden settings        
+        
+//function LeftBarVis(){
+//    
+//    if ($('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-wallet' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-history' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-community') {
+//            $('#mBLeftBar').css('display', 'none');
+//            $('#mBBody').css('width', $wrapW);
+//            $('#mBB-wallet').css('text-align', 'center');
+//    } else {
+//            $('#mBLeftBar').css('display', 'table-cell');    
+//    } 
+//};
+
+
+// Left bar active/hidden settings
 function LeftBarVis(){
     
-    if ($('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-wallet' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-history' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-community') {
+    if (window.matchMedia('(max-width: 420px)').matches) {
+        $('#mBLeftBar').css('display', 'none');
+    } else if ($('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-wallet' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-history' || $('input[type=radio][name=tabs-Icons]:checked').val() == 'mBB-community') {
             $('#mBLeftBar').css('display', 'none');
             $('#mBBody').css('width', $wrapW);
             $('#mBB-wallet').css('text-align', 'center');
     } else {
             $('#mBLeftBar').css('display', 'table-cell');    
-    }  
-    
+    } 
+
 };
 
 
