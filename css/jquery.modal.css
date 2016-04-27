@@ -3,13 +3,14 @@
   top: 0; right: 0; bottom: 0; left: 0;
   width: 100%; height: 100%;
   overflow: auto;
-  z-index: 150;
-  padding: 20px;
+  z-index: 150; /* * */
+  padding: 1rem;
   box-sizing: border-box;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.75);
   text-align: center;
 }
+
 .blocker:before{
   content: "";
   display: inline-block;
@@ -17,15 +18,18 @@
   vertical-align: middle;
   margin-right: -0.05em;
 }
+
 .blocker.behind {
   background-color: transparent;
 }
+
 .modal {
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  z-index: 160;
+  z-index: 160; /* * */
   width: auto;
+  max-width: 90vw; /* * */
   background: #fff;
   padding: 15px 30px;
   -webkit-border-radius: 8px;
@@ -72,14 +76,20 @@
 /* WAVES CUSTOM */
 
 .wavesPop {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
     padding: 0; 
-    min-width: 320px;
+    min-width: 300px;
     max-width: 1920px;
 }
 
 .wPop-header {
     width: 100%;
-    min-width: 420px;
+    min-width: 300px;
     max-width: 1920px;
 }
 
@@ -88,5 +98,5 @@
 }
 
 @media only screen and (max-width: 420px) {
-    min-width: 320px;
+  .modal { width: 80% !important; }
 }
