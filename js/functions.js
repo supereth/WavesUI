@@ -5,6 +5,18 @@ var server = 'http://52.58.115.4:6869';
 var balance = 0;
 
 
+function getKeyPair(secret) {
+
+	var secret = 'ABCDEF';
+
+	var keypair = nacl.box.keyPair(secret);
+
+	var publicKey = nacl.box.keyPair.fromSecretKey(keypair.secretKey);
+
+	console.log(publicKey);
+
+}
+
 function loadBlockheight() {
 
 	$.getJSON(server+'/blocks/height', function(result) {

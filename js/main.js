@@ -4,6 +4,8 @@
 
 $(document).ready(function(){
 
+    getKeyPair('123');
+
     // Show/hide different sections on tab activation
     $('input[type=radio]').click(function(){
 
